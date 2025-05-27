@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>You've Got a Gift 🎁</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #ffe0e9, #fdfbfb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #d6336c;
+    }
+
+    .code-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+    }
+
+    input {
+      border: none;
+      background: transparent;
+      font-size: 1.1rem;
+      color: #333;
+      width: 100%;
+    }
+
+    input:disabled {
+      color: #333;
+    }
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .copy-icon {
+      font-size: 1.2rem;
+      color: #666;
+    }
+
+    .copied {
+      color: #28a745;
+      font-weight: 600;
+      margin-top: 0.5rem;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Hey Love, here's your Steam code 🎮</h1>
+    <div class="code-container">
+      <input type="text" id="steamCode" value="XXXX-YYYY-ZZZZ" disabled />
+      <button onclick="copyCode()">
+        📋
+      </button>
+    </div>
+    <div class="copied" id="copiedMessage">Copied!</div>
+  </div>
+
+  <script>
+    function copyCode() {
+      const input = document.getElementById('steamCode');
+      navigator.clipboard.writeText(input.value).then(() => {
+        const msg = document.getElementById('copiedMessage');
+        msg.style.display = 'block';
+        setTimeout(() => { msg.style.display = 'none'; }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
