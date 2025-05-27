@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>You've Got a Gift 🎁</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Steam Wallet Gift</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #ffe0e9, #fdfbfb);
+      font-family: 'Roboto Mono', monospace;
+      background: #1b2838;
+      color: #c7d5e0;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -17,27 +18,26 @@
     }
 
     .card {
-      background: white;
+      background: #2a475e;
       padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
       text-align: center;
-      max-width: 400px;
+      max-width: 500px;
       width: 100%;
     }
 
     h1 {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       margin-bottom: 1rem;
-      color: #d6336c;
+      color: #66c0f4;
     }
 
     .code-container {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      background: #f8f9fa;
-      border-radius: 10px;
+      background: #1b2838;
+      border-radius: 8px;
       padding: 0.5rem 1rem;
       margin-top: 1rem;
     }
@@ -46,43 +46,50 @@
       border: none;
       background: transparent;
       font-size: 1.1rem;
-      color: #333;
+      color: #66c0f4;
       width: 100%;
+      letter-spacing: 2px;
     }
 
     input:disabled {
-      color: #333;
+      color: #66c0f4;
     }
 
     button {
       background: none;
       border: none;
       cursor: pointer;
+      color: #c7d5e0;
+      font-size: 1.2rem;
+      margin-left: 10px;
     }
 
-    .copy-icon {
-      font-size: 1.2rem;
-      color: #666;
+    button:hover {
+      color: #ffffff;
     }
 
     .copied {
-      color: #28a745;
+      color: #a1f0c4;
       font-weight: 600;
-      margin-top: 0.5rem;
+      margin-top: 0.75rem;
       display: none;
+    }
+
+    .steam-logo {
+      width: 40px;
+      vertical-align: middle;
+      margin-right: 10px;
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>Hey Love, here's your Steam code 🎮</h1>
+    <h1><img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" class="steam-logo" alt="Steam Logo"/> You've got a Steam Wallet Code</h1>
     <div class="code-container">
       <input type="text" id="steamCode" value="XXXX-YYYY-ZZZZ" disabled />
-      <button onclick="copyCode()">
-        📋
-      </button>
+      <button onclick="copyCode()" title="Copy to clipboard">📋</button>
     </div>
-    <div class="copied" id="copiedMessage">Copied!</div>
+    <div class="copied" id="copiedMessage">Copied to clipboard 🎉</div>
   </div>
 
   <script>
