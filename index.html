@@ -44,12 +44,13 @@
     }
 
     input[type="text"], input[type="password"] {
-      border: none;
       background: transparent;
       font-size: 1.1rem;
       color: #66c0f4;
       width: 100%;
       letter-spacing: 2px;
+      border: solid 1px;
+      padding: 5px;
     }
 
     input:disabled {
@@ -58,11 +59,10 @@
 
     button {
       background: none;
-      border: none;
       cursor: pointer;
       color: #c7d5e0;
       font-size: 1.2rem;
-      margin-left: 10px;
+      margin: 20px 0;
     }
 
     button:hover {
@@ -91,6 +91,10 @@
     #walletSection {
       display: none;
     }
+
+    .submit-button {
+      padding: 5px;
+    }
   </style>
 </head>
 <body>
@@ -100,7 +104,7 @@
     <div id="passwordSection">
       <p class="hint">Hint: The day we made it official (DD/MM/YY)</p>
       <input type="password" id="passwordInput" placeholder="Enter the password" />
-      <button onclick="checkPassword()">🔓</button>
+      <button class="submit-button" onclick="checkPassword()">Submit</button>
     </div>
 
     <div id="walletSection">
