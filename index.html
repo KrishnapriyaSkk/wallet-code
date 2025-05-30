@@ -43,7 +43,7 @@
       margin-top: 1rem;
     }
 
-    input {
+    input[type="text"], input[type="password"] {
       border: none;
       background: transparent;
       font-size: 1.1rem;
@@ -81,19 +81,54 @@
       vertical-align: middle;
       margin-right: 10px;
     }
+
+    .hint {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      color: #c7d5e0;
+    }
+
+    #walletSection {
+      display: none;
+    }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1><img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" class="steam-logo" alt="Steam Logo"/> Kichu's Steam Wallet Code</h1>
-    <div class="code-container">
-      <input type="text" id="steamCode" value="XXXX-YYYY-ZZZZ" disabled />
-      <button onclick="copyCode()" title="Copy to clipboard">📋</button>
+    <h1><img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" class="steam-logo" alt="Steam Logo"/> Kichu's Steam Wallet Gift</h1>
+    
+    <div id="passwordSection">
+      <p class="hint">Hint: The day we made it official (DD/MM/YY)</p>
+      <input type="password" id="passwordInput" placeholder="Enter the password" />
+      <button onclick="checkPassword()">🔓</button>
     </div>
-    <div class="copied" id="copiedMessage">Copied to clipboard 🎉</div>
+
+    <div id="walletSection">
+      <div class="code-container">
+        <input type="text" id="steamCode" value="" disabled />
+        <button onclick="copyCode()" title="Copy to clipboard">📋</button>
+      </div>
+      <div class="copied" id="copiedMessage">Copied to clipboard 🎉</div>
+    </div>
   </div>
 
   <script>
+    function checkPassword() {
+      const input = document.getElementById('passwordInput').value;
+      const correctPassword = '29/10/22';
+
+      if (input === correctPassword) {
+        // Hide password input section
+        document.getElementById('passwordSection').style.display = 'none';
+
+        // Show wallet section and inject code
+        document.getElementById('walletSection').style.display = 'block';
+        document.getElementById('steamCode').value = 'XXXX-YYYY-ZZZZ'; // Your real code goes here
+      } else {
+        alert('Incorrect password. Try again.');
+      }
+    }
+
     function copyCode() {
       const input = document.getElementById('steamCode');
       navigator.clipboard.writeText(input.value).then(() => {
